@@ -1,0 +1,22 @@
+---
+
+## for DB instance
+- name: DB
+  vars_files: names.yml
+  hosts: "{{ var_db }}"
+  remote_user: ec2-user
+  become_method: sudo
+  roles:
+    - wladosnull.ssita_geocitizen_db
+
+## for server instance
+- name: Server
+  vars_files: names.yml
+  hosts: "{{ var_server }}"
+  remote_user: ubuntu
+  become_method: sudo
+  become: yes
+  roles:
+    - wladosnull.ssita_geocitizen_server
+
+...

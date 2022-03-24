@@ -1,0 +1,15 @@
+---
+
+## for server instance
+- name: Server
+  hosts: server
+  remote_user: wlad1324
+  become_method: sudo
+  become: yes
+  vars:
+    ansible_ssh_private_key_file: /home/wlados/.aws/ssh_ubuntu/id_rsa
+  
+  roles:
+    - SSITA_geocitizen_SERVER
+
+...

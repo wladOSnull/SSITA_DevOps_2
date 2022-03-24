@@ -1,0 +1,10 @@
+---
+# tasks file for tests
+
+- name: task1
+  debug:
+    msg: public - {{ host_public }}
+
+- name: task2
+  debug:
+    msg: private - {{ host_private }}

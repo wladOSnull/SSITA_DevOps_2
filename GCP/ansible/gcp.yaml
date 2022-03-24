@@ -1,0 +1,21 @@
+---
+
+plugin: gcp_compute
+
+projects:
+  - helical-history-342218
+
+auth_kind: serviceaccount
+service_account_file: /home/wlados/.gcp/terraform.json
+
+keyed_groups:
+
+  - key: name
+    leading_separator: no
+    separator: ''
+
+compose:
+  host_public: networkInterfaces[0].accessConfigs[0].natIP
+  host_private: networkInterfaces[0].networkIP
+
+...

@@ -1,0 +1,26 @@
+---
+
+### for DB instance
+#- name: DB
+#  hosts: db
+#  remote_user: wlad1324
+#  become_method: sudo
+#  become: yes
+#  vars:
+#    ansible_ssh_private_key_file: ~/.aws/ssh_centos/id_rsa
+#  roles:
+#    - tests
+
+## for server instance
+- name: Server
+  hosts: server
+  remote_user: wlad1324
+  become_method: sudo
+  become: yes
+  vars:
+    ansible_ssh_private_key_file: ~/.aws/ssh_ubuntu/id_rsa  
+  roles:
+#    - tests
+    - SSITA_geocitizen_SERVER_docker
+
+...

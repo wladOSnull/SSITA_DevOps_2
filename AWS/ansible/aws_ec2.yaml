@@ -1,0 +1,20 @@
+---
+
+plugin: aws_ec2
+
+regions: eu-north-1
+
+keyed_groups:
+  
+  - key: tags.Name
+    leading_separator: no
+    separator: ''
+
+filters:
+  instance-state-name: running
+
+compose:
+  host_public: public_ip_address
+  host_private: private_ip_address
+
+...

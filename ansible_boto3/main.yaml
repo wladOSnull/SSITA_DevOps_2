@@ -1,0 +1,51 @@
+---
+
+- name: Ansible---boto3 Ubuntu
+  #hosts: tag_Name_terraform_Ubuntu
+  remote_user: ubuntu
+  vars_files: 
+  - vars.yml
+  - names.yml
+  vars:
+    ansible_ssh_private_key_file: "{{ u_key }}"
+  hosts: "{{ var_server }}"
+  
+  tasks:
+  #- name: test file
+  #  copy:
+  #    content: "{{ ansible_host }}"
+  #    dest: /home/ubuntu/boto3file
+
+  - name: print hosts from hosts.ini
+    debug: 
+      msg: "{{ item }}"
+    with_items:
+      - "{{ host_public }}"
+      - "{{ host_private }}"
+
+###
+
+- name: Ansible---boto3 Amazon Linux 2
+  #hosts: tag_Name_terraform_Ubuntu
+  remote_user: ec2-user
+  vars_files: 
+  - vars.yml
+  - names.yml
+  vars:
+    ansible_ssh_private_key_file: "{{ a_key }}"
+  hosts: "{{ var_db }}"
+  
+  tasks:
+  #- name: test file
+  #  copy:
+  #    content: "{{ ansible_host }}"
+  #    dest: /home/ec2-user/boto3file
+
+  - name: print hosts from hosts.ini
+    debug: 
+      msg: "{{ item }}"
+    with_items:
+      - "{{ host_public }}"
+      - "{{ host_private }}"
+
+...

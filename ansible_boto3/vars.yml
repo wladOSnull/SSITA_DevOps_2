@@ -1,0 +1,6 @@
+---
+
+u_key: ~/.aws/ssh_ubuntu/id_rsa
+a_key: ~/.aws/ssh_centos/id_rsa
+
+...
